@@ -1,0 +1,25 @@
+version: '2'
+services:
+  api-todo-list:
+    build: .
+    volumes:
+      - "./api:/src/api"
+    ports:
+      - "3030:3000"
+    links:
+      - "db-todo-list-test:mongo"
+    entrypoint:
+      - "npm"
+      - "run"
+      - "test"
+    environment:
+      - "NODE_CONFIG_DIR=./api/config"
+  db-todo-list-test:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - "data-db-todo-list-test:/data/db"
+volumes:
+  data-db-todo-list-test:
+    driver: local

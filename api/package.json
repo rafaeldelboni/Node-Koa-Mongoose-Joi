@@ -1,0 +1,35 @@
+{
+  "name": "api-todo-list",
+  "version": "1.0.0",
+  "description": "Simple app to test the stack Koa/Mongoose/Joi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "debug": "nodemon -L --debug=5858 api/index.js",
+    "pretest": "npm run lint -s",
+    "test": "mocha api/*/*spec.js",
+    "test-watch": "npm run test -- --watch",
+    "lint": "eslint api"
+  },
+  "author": "@chicocode, @rafaeldelboni",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.24.0",
+    "joi": "^9.2.0",
+    "joigoose": "^1.5.7",
+    "js-yaml": "^3.7.0",
+    "koa": "^2.0.0",
+    "koa-body": "^2.0.0",
+    "koa-logger": "^2.0.0",
+    "koa-router": "^7.0.0",
+    "mongoose": "^4.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.10.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^2.0.0"
+  }
+}

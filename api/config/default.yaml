@@ -1,0 +1,2 @@
+mongodb:
+  uri: 'mongodb://mongo/todo-list'
