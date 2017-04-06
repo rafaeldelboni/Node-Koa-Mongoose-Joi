@@ -4,7 +4,7 @@ exports.list = function (ctx) {
   return todoRepository.getTodoList()
   .then (todo => {
     ctx.status = 200
-    ctx.body = JSON.stringify(todo)
+    ctx.body = todo
   })
   .catch (error => {
     ctx.status = 500
@@ -43,7 +43,7 @@ exports.put = function (ctx) {
     .then(() => {
       ctx.status = 200
       ctx.body = { success: true }
-    }) 
+    })
   })
   .catch (error => {
     ctx.status = 500
