@@ -1,4 +1,5 @@
 'use strict'
+
 let Joi = require('joi')
 let should = require('chai').should()
 let validator = require('./schema-validator')

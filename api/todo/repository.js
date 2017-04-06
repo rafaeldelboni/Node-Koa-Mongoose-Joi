@@ -1,3 +1,5 @@
+'use strict'
+
 let {TodoDb} = require('../models/todo')
 
 let getTodoList = function () {
@@ -24,7 +26,7 @@ let saveTodo = function (todo) {
 
 let updateTodo = function (id, todo) {
   return new Promise(function (resolve, reject) {
-    TodoDb.findByIdAndUpdate(id, todo)   
+    TodoDb.findByIdAndUpdate(id, todo)
       .then(resultTodo => {
         if (!resultTodo)
           reject('todo not found')

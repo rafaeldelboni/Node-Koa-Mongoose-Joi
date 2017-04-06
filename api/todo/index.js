@@ -1,3 +1,5 @@
+'use strict'
+
 let todoRepository = require('./repository')
 
 exports.list = function (ctx) {

@@ -1,3 +1,5 @@
+'use strict'
+
 const app = require('../app')
 const request = require('supertest').agent(app.listen())
 require('chai').should()
@@ -19,7 +21,7 @@ describe('Todos', function() {
         'done': true
       })
 
-      Promise.all([todo1, todo2]).then( () => { 
+      Promise.all([todo1, todo2]).then( () => {
         return done()
       })
     })
@@ -33,7 +35,7 @@ describe('Todos', function() {
         'description': 'Task:202'
       })
 
-      Promise.all([todo1, todo2]).then( () => { 
+      Promise.all([todo1, todo2]).then( () => {
         return done()
       })
     })
@@ -69,7 +71,7 @@ describe('Todos', function() {
   describe('POST /todo', function() {
 
     after(function(done) {
-      repository.removeTodo({}).then( () => { 
+      repository.removeTodo({}).then( () => {
         return done()
       })
     })
@@ -100,7 +102,7 @@ describe('Todos', function() {
           return done()
         })
     })
-    
+
   })
 
   describe('PUT /todo', function() {
@@ -116,13 +118,13 @@ describe('Todos', function() {
         'done': true
       })
 
-      Promise.all([todo1, todo2]).then( () => { 
+      Promise.all([todo1, todo2]).then( () => {
         return done()
       })
     })
 
     after(function(done) {
-      repository.removeTodo({}).then( () => { 
+      repository.removeTodo({}).then( () => {
         return done()
       })
     })

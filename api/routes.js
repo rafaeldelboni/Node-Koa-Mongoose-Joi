@@ -1,3 +1,5 @@
+'use strict'
+
 let Router = require('koa-router')
 let body = require('koa-body')()
 let validator = require('./middleware/schema-validator')
