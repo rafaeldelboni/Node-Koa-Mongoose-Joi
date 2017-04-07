@@ -19,4 +19,3 @@ function setupMongooseSchemas() {
     require(`${models_path}/${file}`)
   })
 }
-

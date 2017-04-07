@@ -1,12 +1,12 @@
 'use strict'
 
-let Router = require('koa-router')
-let body = require('koa-body')()
-let validator = require('./middleware/schema-validator')
+const Router = require('koa-router')
+const body = require('koa-body')()
+const validator = require('./middleware/schema-validator')
 
-let todo = require('./todo/')
+const todo = require('./todo/')
 
-let {TodoJoi} = require('./models/todo')
+const {TodoJoi} = require('./models/todo')
 
 let todoRoute = new Router({prefix: '/todo'})
 todoRoute.get('/', todo.list)

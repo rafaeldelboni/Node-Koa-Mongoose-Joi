@@ -1,9 +1,9 @@
 'use strict'
 
-let koa = require('koa')
-let logger = require('koa-logger')
+const koa = require('koa')
+const logger = require('koa-logger')
 
-let database = require('./database')
+const database = require('./database')
 database.configure()
 
 const routeConfig = require('./routes')

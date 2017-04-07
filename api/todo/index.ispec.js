@@ -200,7 +200,7 @@ describe('Todos', function() {
               responseJson.success.should.be.equal(true)
               repository.getTodo({'_id': todo._id})
                 .catch(error => {
-                  error.should.be.equal('todo not found')
+                  error.message.should.be.equal('todo not found')
                   return done()
                 })
             })

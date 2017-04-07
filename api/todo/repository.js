@@ -1,51 +1,25 @@
 'use strict'
 
-let {TodoDb} = require('../models/todo')
+const {TodoDb} = require('../models/todo')
 
-let getTodoList = function () {
-  return TodoDb.find()
+exports.getTodoList = async () => TodoDb.find()
+
+exports.getTodo = async (id) => {
+  let resultTodo = await TodoDb.findOne(id)
+  if (!resultTodo)
+    throw {message: 'todo not found'}
+  return resultTodo
 }
 
-let getTodo = function (parameter) {
-  return new Promise(function (resolve, reject) {
-    TodoDb.findOne(parameter)
-      .then(resultTodo => {
-        if (!resultTodo)
-          reject('todo not found')
-        resolve(resultTodo)
-      })
-    .catch(error => {
-      reject(error)
-    })
-  })
+exports.saveTodo = async (todo) => {
+  return TodoDb(todo).save()
 }
 
-let saveTodo = function (todo) {
-  return TodoDb(Object.assign(todo)).save()
+exports.updateTodo = async (id, todo) => {
+  let resultTodo = await TodoDb.findByIdAndUpdate(id, todo)
+  if (!resultTodo)
+    throw {message: 'todo not found'}
+  return resultTodo
 }
 
-let updateTodo = function (id, todo) {
-  return new Promise(function (resolve, reject) {
-    TodoDb.findByIdAndUpdate(id, todo)
-      .then(resultTodo => {
-        if (!resultTodo)
-          reject('todo not found')
-        resolve(resultTodo)
-      })
-      .catch(error => {
-        reject(error)
-      })
-  })
-}
-
-let removeTodo = function (parameter) {
-  return TodoDb.remove(parameter)
-}
-
-module.exports = {
-  getTodoList: getTodoList,
-  getTodo: getTodo,
-  saveTodo: saveTodo,
-  updateTodo: updateTodo,
-  removeTodo: removeTodo
-}
+exports.removeTodo = async (id) => TodoDb.remove(id)

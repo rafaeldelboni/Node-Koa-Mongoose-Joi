@@ -1,8 +1,8 @@
 'use strict'
 
-let Joi = require('joi')
-let should = require('chai').should()
-let validator = require('./schema-validator')
+const Joi = require('joi')
+const should = require('chai').should()
+const validator = require('./schema-validator')
 const schema = Joi.object().keys({
   username: Joi.string().email().required()
 })

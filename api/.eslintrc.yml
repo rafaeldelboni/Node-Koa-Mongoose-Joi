@@ -2,7 +2,8 @@ env:
   es6: true
   node: true
   mocha: true
-extends: 'eslint:recommended'
+plugins: ["node"]
+extends: ["eslint:recommended", "plugin:node/recommended"]
 rules:
   indent:
     - error
@@ -16,6 +17,10 @@ rules:
   semi:
     - error
     - never
-  no-console: 
+  no-console:
     - error
     - allow: ["warn", "error"]
+  node/no-missing-require:
+    - 0
+  node/no-unpublished-require:
+    - 0

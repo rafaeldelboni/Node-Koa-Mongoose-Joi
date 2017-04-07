@@ -1,8 +1,8 @@
 'use strict'
 
-let Joi = require('joi')
-let Mongoose = require('mongoose')
-let Joigoose = require('joigoose')(Mongoose)
+const Joi = require('joi')
+const Mongoose = require('mongoose')
+const Joigoose = require('joigoose')(Mongoose)
 
 let TodoJoi = Joi.object().keys({
   description: Joi.string().required(),
@@ -13,7 +13,7 @@ let TodoJoi = Joi.object().keys({
 let mongooseTodoSchema = Joigoose.convert(TodoJoi)
 Mongoose.model('Todo', mongooseTodoSchema)
 
-module.exports = { 
+module.exports = {
   TodoJoi,
   TodoDb: Mongoose.model('Todo')
 }
