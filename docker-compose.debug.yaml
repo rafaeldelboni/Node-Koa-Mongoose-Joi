@@ -8,12 +8,13 @@ services:
     ports:
       - "3000:3000"
       - "5858:5858"
+      - "8080:8080"
     links:
       - "db-todo-list:mongo"
     entrypoint:
       - "npm"
       - "run"
-      - "debug"
+      - "remote:debug"
     environment:
       - "NODE_CONFIG_DIR=./api/config"
   db-todo-list:

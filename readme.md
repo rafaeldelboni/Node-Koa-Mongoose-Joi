@@ -43,16 +43,6 @@ Run `docker-compose -f docker-compose.test.yaml up --abort-on-container-exit` to
 
 Run `npm run lint` to lint code
 
-## Test Watch
-
-Run `docker-compose -f docker-compose.test-watch.yaml up -d` to run in daemon mode then run `docker attach $container_name` to see tests running ($container_name will usually be *crowddecision_api-crowd-decision*)
-
-This is necessary due to docker colorizing issues ([4129](https://github.com/docker/compose/issues/4129) and [4027](https://github.com/docker/compose/issues/4027)):
-
-* Create and start both `api-crowd-decision` and `db-crowd-decision` containers.
-* Execute `mocha api/*/*spec.js --watch`
-* The api will continue to run intermittently and will re-run the tests every time some files are saved.
-
 # Credits
 
 * [@chicocode](https://github.com/chicocode)
